@@ -12,7 +12,8 @@ class Question {
       required this.answers,
       this.correctAnswer});
 
-  Question.fromJson(Map<String, dynamic> json)
+  Question.fromJson(
+      Map<String, dynamic> json) 
       : id = json['id'],
         question = json['question'],
         answers =
@@ -26,7 +27,7 @@ class Question {
     if (this.answers != null) {
       data['answers'] = this.answers.map((v) => v.toJson()).toList();
     }
-    data['correct_answer'] = this.correctAnswer;  
+    data['correct_answer'] = this.correctAnswer;
     return data;
   }
 }
