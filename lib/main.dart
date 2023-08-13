@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quiz_study_app/Controllers/theme_controller.dart';
 import 'package:quiz_study_app/bidings/initial_bidings.dart';
+import 'package:quiz_study_app/configs/themes/app_dark_theme.dart';
+import 'package:quiz_study_app/configs/themes/app_light_theme.dart';
 import 'package:quiz_study_app/firebase_options.dart';
 import 'package:quiz_study_app/routes/app_routes.dart';
 
@@ -19,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      theme: Get.find<ThemeController>().darkTheme,
       debugShowCheckedModeBanner: false,
       getPages: AppRoutes.routes(),
     );
