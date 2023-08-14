@@ -36,7 +36,9 @@ class AppIntroductionScreen extends StatelessWidget {
             ),
             const SizedBox(height: 40),
             AppCircleButton(
-              ontap: () {},
+              ontap: () {
+                Navigator.pushNamed(context, "/home");
+              },
               child: const Icon(
                 Icons.arrow_forward,
                 size: 35,

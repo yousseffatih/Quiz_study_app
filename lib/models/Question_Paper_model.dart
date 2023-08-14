@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'Question.dart';
 
 class QuestionPaperModel {
@@ -7,14 +9,17 @@ class QuestionPaperModel {
   String description;
   int timeSeconds;
   List<Question>? questions;
+  int questionCount;
 
-  QuestionPaperModel(
-      {required this.id,
-      required this.title,
-      this.imageUrl,
-      required this.description,
-      required this.timeSeconds,
-      this.questions});
+  QuestionPaperModel({
+    required this.id,
+    required this.title,
+    this.imageUrl,
+    required this.description,
+    required this.timeSeconds,
+    this.questions,
+    required this.questionCount,
+  });
 
   QuestionPaperModel.fromJson(Map<String, dynamic> json)
       : id = json['id'] as String,
@@ -24,7 +29,18 @@ class QuestionPaperModel {
         timeSeconds = json['time_seconds'] as int,
         questions = (json['questions'] as List)
             .map((dynamic e) => Question.fromJson(e as Map<String, dynamic>))
-            .toList();
+            .toList(),
+        questionCount = 0;
+
+  QuestionPaperModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
+      : id = json.id,
+        title = json['title'],
+        imageUrl = json['image_url'],
+        description = json['Description'],
+        timeSeconds = json['time_seconds'],
+        questions =
+            [], // it's not important in first page when we showe the models
+        questionCount = json['quesstion_Count'] as int;
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
