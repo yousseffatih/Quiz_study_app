@@ -32,6 +32,8 @@ class QuestionPaperModel {
             .toList(),
         questionCount = 0;
 
+  String timeInMinits() => "${(timeSeconds / 60).ceil()} mins";
+
   QuestionPaperModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> json)
       : id = json.id,
         title = json['title'],
