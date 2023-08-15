@@ -25,7 +25,7 @@ class QuestionPaperModel {
       : id = json['id'] as String,
         title = json['title'] as String,
         imageUrl = json['image_url'] as String,
-        description = json['Description'] as String,
+        description = json['description'] as String,
         timeSeconds = json['time_seconds'] as int,
         questions = (json['questions'] as List)
             .map((dynamic e) => Question.fromJson(e as Map<String, dynamic>))
@@ -36,19 +36,19 @@ class QuestionPaperModel {
       : id = json.id,
         title = json['title'],
         imageUrl = json['image_url'],
-        description = json['Description'],
+        description = json['description'],
         timeSeconds = json['time_seconds'],
         questions =
             [], // it's not important in first page when we showe the models
-        questionCount = json['quesstion_Count'] as int;
+        questionCount = json['questions_count'] as int;
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['image_url'] = this.imageUrl;
-    data['Description'] = this.description;
-    data['time_seconds'] = this.timeSeconds;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['title'] = title;
+    data['image_url'] = imageUrl;
+    data['description'] = description;
+    data['time_seconds'] = timeSeconds;
 
     return data;
   }
