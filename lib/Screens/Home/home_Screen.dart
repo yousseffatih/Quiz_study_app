@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_study_app/Controllers/question_paper/question_paper_Controller.dart';
+import 'package:quiz_study_app/Screens/Home/question_card.dart';
+import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
+import 'package:quiz_study_app/widgets/content_area.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,29 +12,24 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     QuestionPaperController questionPaperController = Get.find();
     return Scaffold(
-        body: Obx(
-      () => ListView.separated(
-        itemBuilder: (BuildContext context, int index) {
-          return ClipRRect(
-            child: SizedBox(
-              height: 200,
-              width: 200,
-              child: FadeInImage(
-                image:
-                    NetworkImage(questionPaperController.allpaperImages[index]),
-                placeholder:
-                    const AssetImage("assets/images/app_splash_logo.png"),
-              ),
-            ),
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const SizedBox(
-            height: 20,
-          );
-        },
-        itemCount: questionPaperController.allpaperImages.length,
+      body: ContentArea(
+        addPadding: false,
+        child: Obx(() => ListView.separated(
+              padding: UiParameters.mobileScreenPadding,
+              shrinkWrap: true,
+              itemBuilder: (BuildContext context, int index) {
+                return QuestionCard(
+                  model: questionPaperController.allPapers[index],
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  height: 20,
+                );
+              },
+              itemCount: questionPaperController.allPapers.length,
+            )),
       ),
-    ));
+    );
   }
 }
