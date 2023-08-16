@@ -15,6 +15,6 @@ class UiParameters {
       const EdgeInsets.all(_mobileScreenPadding);
 
   static bool isDarkMode() {
-    return Get.isDarkMode ? false : true;
+    return Get.isDarkMode ? true : false;
   }
 }

@@ -31,5 +31,5 @@ custumScaffoldColor(BuildContext context) {
   //     : const Color.fromARGB(255, 221, 221, 221);
   UiParameters.isDarkMode()
       ? const Color(0xFF2e3c62)
-      : const Color.fromARGB(255, 240, 237, 255);
+      : Color.fromARGB(255, 222, 218, 248);
 }

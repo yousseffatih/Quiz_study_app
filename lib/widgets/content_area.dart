@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quiz_study_app/Controllers/theme_controller.dart';
 import 'package:quiz_study_app/configs/themes/app_colors.dart';
 import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
 
@@ -16,11 +18,12 @@ class ContentArea extends StatelessWidget {
     return Material(
       borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
       clipBehavior: Clip.hardEdge,
-      type: MaterialType.transparency,
+      //type: MaterialType.transparency,
       child: Ink(
-        decoration: BoxDecoration(
-          color: custumScaffoldColor(context),
-        ),
+        // decoration: BoxDecoration(
+        //   color: custumScaffoldColor(context),
+        // ),
+        color: custumScaffoldColor(context),
         padding: addPadding
             ? EdgeInsets.only(
                 top: mobileScreenPadding,
