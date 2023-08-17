@@ -3,6 +3,7 @@ import 'package:quiz_study_app/Controllers/question_paper/question_paper_Control
 import 'package:quiz_study_app/Controllers/zoom_drawer_controller.dart';
 import 'package:quiz_study_app/Screens/Home/home_Screen.dart';
 import 'package:quiz_study_app/Screens/Introduction/introduction.dart';
+import 'package:quiz_study_app/Screens/Login/login_screen.dart';
 import 'package:quiz_study_app/Screens/Splach/splash_screen.dart';
 
 class AppRoutes {
@@ -11,11 +12,15 @@ class AppRoutes {
         GetPage(
             name: "/introduction", page: () => const AppIntroductionScreen()),
         GetPage(
-            name: "/home",
-            page: () => const HomeScreen(),
-            binding: BindingsBuilder(() {
+          name: "/home",
+          page: () => const HomeScreen(),
+          binding: BindingsBuilder(
+            () {
               Get.put(QuestionPaperController());
-              Get .put(MyZoomDrawerController());
-            })),
+              Get.put(MyZoomDrawerController());
+            },
+          ),
+        ),
+        GetPage(name: LoginScreen.routeName, page: () => const LoginScreen())
       ];
 }

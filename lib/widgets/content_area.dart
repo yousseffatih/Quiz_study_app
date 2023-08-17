@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:quiz_study_app/Controllers/theme_controller.dart';
 import 'package:quiz_study_app/configs/themes/app_colors.dart';
 import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
 
