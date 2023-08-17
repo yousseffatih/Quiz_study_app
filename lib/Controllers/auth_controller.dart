@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:quiz_study_app/Screens/Home/home_Screen.dart';
 import 'package:quiz_study_app/Screens/Login/login_screen.dart';
 import 'package:quiz_study_app/firebase_ref/references.dart';
 
@@ -34,10 +35,14 @@ class AuthController extends GetxController {
     Get.offAllNamed('/introduction');
   }
 
+  void navigatHomePage() {
+    Get.offAllNamed(HomeScreen.routeName);
+  }
+
   void showLoginAlertDialogue() {
     Get.dialog(Dialogs.quetionStartDialogue(onTap: () {
       Get.back();
-      navigatToLoginPage();
+      navigatHomePage();
     }), barrierDismissible: false);
   }
 
@@ -47,6 +52,20 @@ class AuthController extends GetxController {
 
   bool isLoggedIn() {
     return auth.currentUser != null;
+  }
+
+  User? getUser() {
+    user.value = auth.currentUser;
+    return user.value;
+  }
+
+  Future<void> singOut() async {
+    try {
+      await auth.signOut();
+      navigatToLoginPage();
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
   }
 
   singInWithGoogle() async {
@@ -62,6 +81,7 @@ class AuthController extends GetxController {
         );
         await auth.signInWithCredential(credential);
         await saveUser(account);
+        navigatHomePage();
       }
     } on Exception catch (err) {
       // applogger.e(err);
