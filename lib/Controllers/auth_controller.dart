@@ -41,8 +41,8 @@ class AuthController extends GetxController {
 
   void showLoginAlertDialogue() {
     Get.dialog(Dialogs.quetionStartDialogue(onTap: () {
-      Get.back();
-      navigatHomePage();
+      //Get.back();
+      navigatToLoginPage();
     }), barrierDismissible: false);
   }
 
