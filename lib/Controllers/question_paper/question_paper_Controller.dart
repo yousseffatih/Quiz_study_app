@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:quiz_study_app/Controllers/auth_controller.dart';
+import 'package:quiz_study_app/Screens/Questions/questions_Screen.dart';
 import 'package:quiz_study_app/firebase_ref/references.dart';
 import 'package:quiz_study_app/models/Question_Paper_model.dart';
 import 'package:quiz_study_app/services/firestore_services.dart';
@@ -43,7 +44,7 @@ class QuestionPaperController extends GetxController {
         //Get.back();
         //Get.offNamed();
       } else {
-        //Get.toNamed();
+        Get.toNamed(QuestionScreen.routeName, arguments: paper);
       }
     } else {
       authController.showLoginAlertDialogue();
