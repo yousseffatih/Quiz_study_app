@@ -16,3 +16,5 @@ const headText = TextStyle(
   fontWeight: FontWeight.w700,
   color: onSurfaceTextColor,
 );
+
+const questionText = TextStyle(fontSize: 16, fontWeight: FontWeight.w800);
