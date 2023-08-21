@@ -49,7 +49,7 @@ class CustumAppBar extends StatelessWidget implements PreferredSizeWidget {
                     offset: const Offset(10, 0),
                     child: AppCircleButton(
                       child: Icon(
-                        AppIcons.menuLeft,
+                        AppIcons.menu,
                       ),
                       ontap: onMenuActionTap ?? null,
                     ),
