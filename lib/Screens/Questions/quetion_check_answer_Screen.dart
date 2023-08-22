@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_study_app/Controllers/question_paper/questionsController.dart';
-import 'package:quiz_study_app/Screens/Home/question_card.dart';
 import 'package:quiz_study_app/Screens/Questions/result_Screen.dart';
-import 'package:quiz_study_app/configs/themes/app_colors.dart';
 import 'package:quiz_study_app/configs/themes/custul_text_style.dart';
 import 'package:quiz_study_app/widgets/common/background_decoration.dart';
 import 'package:quiz_study_app/widgets/common/custum_app_bar.dart';

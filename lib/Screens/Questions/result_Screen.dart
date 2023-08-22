@@ -90,14 +90,14 @@ class ResultScreen extends GetView<QuestionsController> {
               ),
             ),
             ColoredBox(
-              color: Theme.of(context).scaffoldBackgroundColor,
+              color: custumScaffoldColor(context),
               child: Padding(
                 padding: UiParameters.mobileScreenPadding,
                 child: Row(
                   children: [
                     Expanded(
                       child: MainButton(
-                        color: Colors.blueGrey,
+                        //color: Colors.blueGrey,
                         onTap: () {
                           controller.tryAgain();
                         },

@@ -2,8 +2,6 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:quiz_study_app/Controllers/auth_controller.dart';
-import 'package:quiz_study_app/Controllers/question_paper/question_contriller_extention.dart';
 import 'package:quiz_study_app/Controllers/question_paper/question_paper_Controller.dart';
 import 'package:quiz_study_app/Screens/Home/home_Screen.dart';
 import 'package:quiz_study_app/Screens/Questions/result_Screen.dart';

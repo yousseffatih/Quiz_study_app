@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_study_app/Controllers/question_paper/questionsController.dart';
+import 'package:quiz_study_app/configs/themes/app_colors.dart';
 import 'package:quiz_study_app/configs/themes/custul_text_style.dart';
 import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
 import 'package:quiz_study_app/widgets/common/background_decoration.dart';
@@ -73,7 +74,7 @@ class TestOverviewScreen extends GetView<QuestionsController> {
               )),
             ),
             ColoredBox(
-              color: Theme.of(context).scaffoldBackgroundColor,
+              color: custumScaffoldColor(context),
               child: Padding(
                 padding: UiParameters.mobileScreenPadding,
                 child: MainButton(

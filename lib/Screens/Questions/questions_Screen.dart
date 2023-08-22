@@ -103,7 +103,7 @@ class QuestionScreen extends GetView<QuestionsController> {
                     ),
                   ),
             ColoredBox(
-              color: Theme.of(context).scaffoldBackgroundColor,
+              color: custumScaffoldColor(context),
               child: Padding(
                 padding: UiParameters.mobileScreenPadding,
                 child: Row(
