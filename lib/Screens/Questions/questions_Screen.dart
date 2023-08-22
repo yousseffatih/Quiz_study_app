@@ -83,7 +83,7 @@ class QuestionScreen extends GetView<QuestionsController> {
                                     itemBuilder: (context, index) {
                                       final answer = controller.currentQuestion
                                           .value!.answers[index];
-                                      return QuestionCard(
+                                      return QuestionCard_(
                                         answer:
                                             "${answer.identifier}.${answer.answer}",
                                         onTap: () {
@@ -103,7 +103,7 @@ class QuestionScreen extends GetView<QuestionsController> {
                     ),
                   ),
             ColoredBox(
-              color: Theme.of(context).scaffoldBackgroundColor,
+              color: custumScaffoldColor(context),
               child: Padding(
                 padding: UiParameters.mobileScreenPadding,
                 child: Row(

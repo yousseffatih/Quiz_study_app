@@ -6,6 +6,8 @@ import 'package:quiz_study_app/Screens/Home/home_Screen.dart';
 import 'package:quiz_study_app/Screens/Introduction/introduction.dart';
 import 'package:quiz_study_app/Screens/Login/login_screen.dart';
 import 'package:quiz_study_app/Screens/Questions/questions_Screen.dart';
+import 'package:quiz_study_app/Screens/Questions/quetion_check_answer_Screen.dart';
+import 'package:quiz_study_app/Screens/Questions/result_Screen.dart';
 import 'package:quiz_study_app/Screens/Questions/test_overview_Screen.dart';
 import 'package:quiz_study_app/Screens/Splach/splash_screen.dart';
 
@@ -35,6 +37,14 @@ class AppRoutes {
         GetPage(
           name: TestOverviewScreen.routeName,
           page: () => const TestOverviewScreen(),
+        ),
+        GetPage(
+          name: ResultScreen.routeName,
+          page: () => const ResultScreen(),
+        ),
+        GetPage(
+          name: AnswerCheckScreen.routeName,
+          page: () => const AnswerCheckScreen(),
         ),
       ];
 }
