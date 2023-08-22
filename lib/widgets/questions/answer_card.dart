@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:quiz_study_app/configs/themes/app_colors.dart';
 import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
 
+enum AnswerStatus {
+  correct,
+  wrong,
+  answerd,
+  notanswerd,
+}
+
 class QuestionCard extends StatelessWidget {
   final String answer;
   final bool isSelected;

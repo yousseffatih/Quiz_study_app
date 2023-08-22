@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_study_app/Controllers/question_paper/questionsController.dart';
+import 'package:quiz_study_app/Screens/Questions/test_overview_Screen.dart';
 import 'package:quiz_study_app/configs/themes/app_colors.dart';
 import 'package:quiz_study_app/configs/themes/custul_text_style.dart';
 import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
@@ -23,25 +24,28 @@ class QuestionScreen extends GetView<QuestionsController> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: CustumAppBar(
-          leading: Container(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            decoration: const ShapeDecoration(
-              shape: StadiumBorder(
-                side: BorderSide(color: onSurfaceTextColor, width: 2),
-              ),
+        leading: Container(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+          decoration: const ShapeDecoration(
+            shape: StadiumBorder(
+              side: BorderSide(color: onSurfaceTextColor, width: 2),
             ),
-            child: Obx(() => CountDownTimer(
-                  time: controller.time.value,
-                  color: onSurfaceTextColor,
-                )),
           ),
-          showActionIcon: true,
-          titleWidget: Obx(
-            () => Text(
-              "Q . ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}",
-              style: appBarText,
+          child: Obx(
+            () => CountDownTimer(
+              time: controller.time.value,
+              color: onSurfaceTextColor,
             ),
-          )),
+          ),
+        ),
+        showActionIcon: true,
+        titleWidget: Obx(
+          () => Text(
+            "Q . ${(controller.questionIndex.value + 1).toString().padLeft(2, '0')}",
+            style: appBarText,
+          ),
+        ),
+      ),
       body: background_Decoration(
           child: Obx(
         () => Column(
@@ -132,7 +136,7 @@ class QuestionScreen extends GetView<QuestionsController> {
                           child: MainButton(
                             onTap: () {
                               controller.isLastQuestion
-                                  ? Container()
+                                  ? Get.toNamed(TestOverviewScreen.routeName)
                                   : controller.nextQuestion();
                             },
                             title:
