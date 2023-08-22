@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:quiz_study_app/Screens/Questions/test_overview_Screen.dart';
 import 'package:quiz_study_app/configs/themes/app_icon.dart';
 import 'package:quiz_study_app/configs/themes/custul_text_style.dart';
 import 'package:quiz_study_app/configs/themes/ui_parameters.dart';
@@ -28,8 +30,8 @@ class CustumAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Positioned.fill(
               child: titleWidget == null
-                  ? const Center(
-                      child: Text("title", style: appBarText),
+                  ? Center(
+                      child: Text(title, style: appBarText),
                     )
                   : Center(
                       child: titleWidget,
@@ -48,10 +50,11 @@ class CustumAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Transform.translate(
                     offset: const Offset(10, 0),
                     child: AppCircleButton(
-                      child: Icon(
+                      ontap: onMenuActionTap ??
+                          () => Get.toNamed(TestOverviewScreen.routeName),
+                      child: const Icon(
                         AppIcons.menu,
                       ),
-                      ontap: onMenuActionTap ?? null,
                     ),
                   )
               ],

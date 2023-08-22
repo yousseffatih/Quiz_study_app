@@ -78,6 +78,22 @@ class QuestionsController extends GetxController {
     update(['answers_list']);
   }
 
+  String get completTest {
+    final answered = allQuestions
+        .where((element) => element.selectedAnswer != null)
+        .toList()
+        .length;
+    return "$answered out of ${allQuestions.length} answered";
+  }
+
+  void jumpeToQuestion(int index, {bool isGOBack = true}) {
+    questionIndex.value = index;
+    currentQuestion.value = allQuestions[index];
+    if (isGOBack) {
+      Get.back();
+    }
+  }
+
   void nextQuestion() {
     if (questionIndex.value >= allQuestions.length - 1) {
       return;
@@ -96,7 +112,7 @@ class QuestionsController extends GetxController {
   startTime(int seconds) {
     const duration = Duration(seconds: 1);
     remaindSeconds = seconds;
-    Timer.periodic(duration, (timer) {
+    timer = Timer.periodic(duration, (timer) {
       if (remaindSeconds == 0) {
         timer.cancel();
       } else {
@@ -108,5 +124,10 @@ class QuestionsController extends GetxController {
         remaindSeconds--;
       }
     });
+  }
+
+  void completed() {
+    timer!.cancel();
+    Get.offAndToNamed("/home");
   }
 }
