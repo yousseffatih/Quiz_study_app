@@ -9,11 +9,11 @@ enum AnswerStatus {
   notanswerd,
 }
 
-class QuestionCard extends StatelessWidget {
+class QuestionCard_ extends StatelessWidget {
   final String answer;
   final bool isSelected;
   final VoidCallback onTap;
-  const QuestionCard({
+  const QuestionCard_({
     super.key,
     required this.answer,
     this.isSelected = true,
@@ -38,6 +38,75 @@ class QuestionCard extends StatelessWidget {
           border: Border.all(
             color: isSelected ? answerSelectedColor() : answerBorderColor(),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CorrectAnswer extends StatelessWidget {
+  const CorrectAnswer({super.key, required this.answer});
+  final String answer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Ink(
+      decoration: BoxDecoration(
+        borderRadius: UiParameters.cardBorderRaduis,
+        color: correctAnswerColor.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      child: Text(
+        answer,
+        style: const TextStyle(
+          color: correctAnswerColor,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
+
+class NotAnswered extends StatelessWidget {
+  const NotAnswered({super.key, required this.answer});
+  final String answer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Ink(
+      decoration: BoxDecoration(
+        borderRadius: UiParameters.cardBorderRaduis,
+        color: notAnswerdColor.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      child: Text(
+        answer,
+        style: const TextStyle(
+          color: notAnswerdColor,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
+
+class WrongAnswer extends StatelessWidget {
+  const WrongAnswer({super.key, required this.answer});
+  final String answer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Ink(
+      decoration: BoxDecoration(
+        borderRadius: UiParameters.cardBorderRaduis,
+        color: wrongAnswerColor.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      child: Text(
+        answer,
+        style: const TextStyle(
+          color: wrongAnswerColor,
+          fontWeight: FontWeight.bold,
         ),
       ),
     );

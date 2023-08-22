@@ -83,7 +83,7 @@ class QuestionScreen extends GetView<QuestionsController> {
                                     itemBuilder: (context, index) {
                                       final answer = controller.currentQuestion
                                           .value!.answers[index];
-                                      return QuestionCard(
+                                      return QuestionCard_(
                                         answer:
                                             "${answer.identifier}.${answer.answer}",
                                         onTap: () {

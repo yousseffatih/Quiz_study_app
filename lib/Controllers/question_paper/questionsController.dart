@@ -1,8 +1,12 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:quiz_study_app/Controllers/auth_controller.dart';
+import 'package:quiz_study_app/Controllers/question_paper/question_contriller_extention.dart';
+import 'package:quiz_study_app/Controllers/question_paper/question_paper_Controller.dart';
+import 'package:quiz_study_app/Screens/Home/home_Screen.dart';
+import 'package:quiz_study_app/Screens/Questions/result_Screen.dart';
 import 'package:quiz_study_app/firebase_ref/loding_status.dart';
 import 'package:quiz_study_app/firebase_ref/references.dart';
 import 'package:quiz_study_app/models/Question.dart';
@@ -75,7 +79,7 @@ class QuestionsController extends GetxController {
 
   void selectedAnswer(String? answer) {
     currentQuestion.value!.selectedAnswer = answer;
-    update(['answers_list']);
+    update(['answers_list', 'answer_review_list']);
   }
 
   String get completTest {
@@ -128,6 +132,16 @@ class QuestionsController extends GetxController {
 
   void completed() {
     timer!.cancel();
-    Get.offAndToNamed("/home");
+    Get.offAndToNamed(ResultScreen.routeName);
+  }
+
+  void tryAgain() {
+    Get.find<QuestionPaperController>()
+        .navigatorToQuestion(paper: questionPaperModel, tryagain: true);
+  }
+
+  void navigatorToHome() {
+    timer!.cancel();
+    Get.offNamedUntil(HomeScreen.routeName, (route) => false);
   }
 }
